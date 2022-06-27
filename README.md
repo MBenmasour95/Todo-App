@@ -37,7 +37,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [URL Here](https://www.frontendmentor.io/solutions/html-css-vanilla-javascript-3Bzm_-fLda)
 - Live Site URL: [URL Here](https://mbenmasour95.github.io/Todo-App/)
 
 ## My process
