@@ -1,0 +1,471 @@
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+/* Variables */
+:root {
+  /* Backgrounds */
+  --bg-clr: hsl(235, 21%, 11%);
+  --bg-desktop-img: url("./images/bg-desktop-dark.jpg");
+  --bg-mobile-img: url("./images/bg-mobile-dark.jpg");
+
+  /* Colors */
+  --clr-1: hsl(220, 98%, 61%);
+  --clr-2: hsl(192, 100%, 67%);
+  --clr-3: hsl(280, 87%, 65%);
+  --clr-4: hsl(235, 24%, 19%);
+  --clr-5: hsl(234, 39%, 85%);
+  --clr-6: hsl(234, 11%, 52%);
+  --clr-7: hsl(233, 14%, 35%);
+  --clr-8: hsl(237, 14%, 26%);
+  --clr-9: hsl(233, 14%, 35%);
+  --clr-10: hsl(236, 33%, 92%);
+  --clr-11: hsla(0, 0%, 1%, 0.89);
+  --clr-12: hsl(0, 0%, 98%);
+  --clr-13: hsl(228, 45%, 44%);
+
+  /* Font */
+  --f-family: "Josefin Sans", sans-serif;
+
+  /* Spacing */
+  --spacing-1: 0.8rem;
+  --spacing-2: 0.4rem;
+
+  /* Transition */
+  --transition-1: all 0.3s ease;
+  --transition-2: all 0.2s ease-in-out;
+
+  /* Radius */
+  --radius-1: 0.4rem;
+  --radius-2: 50%;
+}
+
+.light-mode {
+  --bg-clr: hsl(0, 0%, 98%);
+  --bg-desktop-img: url("./images/bg-desktop-light.jpg");
+  --bg-mobile-img: url("./images/bg-mobile-light.jpg");
+  --clr-4: hsl(0, 0%, 98%);
+  --clr-5: hsl(235, 19%, 35%);
+  --clr-6: hsl(236, 9%, 61%);
+  --clr-7: hsl(233, 11%, 84%);
+  --clr-8: hsl(236, 33%, 92%);
+  --clr-9: hsl(236, 9%, 61%);
+  --clr-10: hsl(235, 19%, 35%);
+  --clr-11: hsl(233, 11%, 84%);
+}
+
+/* Global Styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--bg-clr) var(--bg-desktop-img) no-repeat top center;
+  -webkit-background-size: 100% 35vh;
+  -moz-background-size: 100% 35vh;
+  background-size: 100% 35vh;
+  min-height: 100vh;
+  font-family: var(--f-family);
+  font-size: 1.6rem;
+  padding: 3rem 2rem 0;
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: 5rem 1fr 3rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1440px) {
+  body {
+    font-size: 1.8rem;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+button,
+input {
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  user-select: none;
+  pointer-events: none;
+}
+
+img:not(.checkbox img) {
+  width: 100%;
+  height: 100%;
+}
+
+/* Utilities */
+.p-absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+/* Layout */
+.header,
+.wrapper {
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.header {
+  justify-content: space-between;
+}
+
+h2 {
+  color: var(--clr-12);
+  font-size: 3.2rem;
+  letter-spacing: var(--spacing-1);
+}
+
+.toggle-btns {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+}
+
+.toggle-btns button {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.toggle-btns button.active {
+  display: block;
+}
+
+.form {
+  width: 100%;
+  height: 5.5rem;
+  background-color: var(--clr-4);
+  margin-top: 2.5rem;
+  padding: 0 1rem;
+  border-radius: var(--radius-1);
+}
+
+.form .circle {
+  position: relative;
+  width: 4rem;
+  height: 100%;
+}
+
+.form .circle::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--clr-8);
+  border-radius: var(--radius-2);
+}
+
+.form .input {
+  flex: 1;
+  color: var(--clr-5);
+  padding: 0.5rem;
+}
+
+.todos {
+  width: 100%;
+  background-color: var(--clr-4);
+  margin-top: 2rem;
+  border-radius: var(--radius-1) var(--radius-1) 0 0;
+  text-align: center;
+  box-shadow: 0 8rem 12rem -2.8rem var(--clr-11);
+}
+
+.todo-item {
+  position: relative;
+  min-height: 5.5rem;
+  padding: 1rem;
+  border-bottom: 0.1rem solid var(--clr-8);
+  user-select: none;
+  z-index: 1;
+}
+
+.todo-item.dragging {
+  background-color: var(--clr-9);
+}
+
+.todo-item input {
+  display: none;
+}
+
+.todo-item .checkbox {
+  position: relative;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-left: 1rem;
+  border: 0.1rem solid var(--clr-8);
+  background-color: var(--clr-4);
+  cursor: pointer;
+  border-radius: var(--radius-2);
+}
+
+.todo-item .checkbox:hover {
+  border-width: 0;
+}
+
+.todo-item .checkbox:hover::before {
+  content: "";
+  position: absolute;
+  top: -0.1rem;
+  bottom: -0.1rem;
+  left: -0.1rem;
+  right: -0.1rem;
+  background-image: linear-gradient(135deg, var(--clr-2) 0%, var(--clr-3) 100%);
+  border-radius: var(--radius-2);
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.todo-item .checkbox img {
+  display: none;
+}
+
+.todo-item input:checked + .checkbox {
+  background-image: linear-gradient(135deg, var(--clr-2) 0%, var(--clr-3) 100%);
+  border-width: 0;
+}
+
+.todo-item input:checked + .checkbox:hover::before {
+  display: none;
+}
+
+.todo-item input:checked + .checkbox img {
+  display: block;
+}
+
+.todo-item .text {
+  color: var(--clr-5);
+  margin-left: 1.5rem;
+  line-height: 2.4rem;
+  cursor: pointer;
+}
+
+.todo-item input:checked ~ .text {
+  color: var(--clr-7);
+  text-decoration: line-through;
+}
+
+.todo-item.dragging input:checked ~ .text {
+  color: var(--clr-5);
+  text-decoration: line-through;
+}
+
+.todo-item .delete-btn {
+  justify-self: flex-end;
+  margin-left: auto;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.todo-item:hover .delete-btn {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.controls {
+  position: relative;
+  min-height: 5.5rem;
+  justify-content: space-between;
+  background-color: var(--clr-4);
+  color: var(--clr-9);
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 0 0 var(--radius-1) var(--radius-1);
+  z-index: 1;
+  display: none;
+}
+
+.controls.show {
+  display: flex;
+}
+
+.controls button {
+  transition: var(--transition-2);
+}
+
+.controls button.active {
+  color: var(--clr-1);
+}
+
+.controls button:not(.active):hover {
+  color: var(--clr-10);
+}
+
+.btn-group button {
+  color: var(--clr-6);
+  margin: 0 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.clear-btn {
+  color: var(--clr-9);
+}
+
+.instructions {
+  color: var(--clr-9);
+  text-align: center;
+  margin: 2rem 0;
+  display: none;
+}
+
+.instructions.show {
+  display: block;
+}
+
+.attribution {
+  justify-content: center;
+  font-size: 1.4rem;
+  text-align: center;
+  color: var(--clr-5);
+}
+.attribution a {
+  color: var(--clr-13);
+  margin: 0 0.5rem;
+}
+
+/* Responsive Layout */
+@media (max-width: 580px) {
+  body {
+    background-image: var(--bg-mobile-img);
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    letter-spacing: var(--spacing-2);
+  }
+
+  .toggle-btns {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .todo-item {
+    min-height: 6rem;
+  }
+
+  .todo-item .checkbox:hover {
+    border-width: 0.1rem;
+  }
+
+  .todo-item .checkbox:hover::before {
+    display: none;
+  }
+
+  .todo-item .delete-btn {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .controls {
+    padding: 2rem;
+  }
+
+  .controls button:not(.active):hover {
+    color: inherit;
+  }
+
+  .controls .btn-group {
+    position: absolute;
+    bottom: -7rem;
+    left: 0;
+    justify-content: center;
+    height: 5rem;
+    width: 100%;
+    background-color: var(--clr-4);
+    border-radius: var(--radius-1);
+  }
+
+  .controls .btn-group button {
+    margin: 0 0.8rem;
+  }
+
+  .controls button:not(.active, .clear-btn):hover {
+    color: var(--clr-6);
+  }
+
+  .instructions {
+    margin: 9rem 0 2rem;
+  }
+
+  .attribution {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .form .circle {
+    width: 3rem;
+  }
+
+  .form .circle::before {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .todo-item .checkbox {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.5rem;
+  }
+
+  .todo-item .delete-btn {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .controls .btn-group button {
+    font-size: 1.4rem;
+  }
+}
